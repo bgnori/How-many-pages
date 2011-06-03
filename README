@@ -1,6 +1,21 @@
-
-
-Have to get Cookie: header before use. 
+Have to get Cookie: header before use. (Use Live HTTP Headers FireFox Addons etc.)
 Store Cookie to cookie.txt locally.
 script will read cookie.txt in current dir to supply cookie.
 
+
+Story:
+I wanted to scan all my books. Some scan services ask me to tell them "how many pages?" for charges.
+
+So, I decided to use google books to figure out book length.
+http://books.google.co.jp/books
+
+1) Scan bar code with bar code reader to get ISBNs.
+
+2) Register all ISBNs to google books, example:
+http://books.google.com/books?uid=109354444701174183837&as_coll=1002&source=gbs_lp_bookshelf_list
+
+3) Export XML file(s) via Options.
+4) Obtain CSV file(s) with length data using this script, python run.py *.xml
+5) Print CSV file(s) and put it on box.
+
+Have happy digital life!
