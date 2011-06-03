@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<library>
+  <list_title>test2</list_title>
+  <blurb></blurb>
+  <url>http://books.google.co.jp/books?uid=109354444701174183837&amp;as_coll=1003</url>
+  <books>
+    <book>
+      <id>K3tgOwAACAAJ</id>
+      <url>http://books.google.co.jp/books?id=K3tgOwAACAAJ</url>
+      <title>開発のプロが教える標準Django完全解説</title>
+      <contributor>増田泰, 中居良介, 露木誠, 松原豊</contributor>
+      <identifier>
+        <type>ISBN</type>
+        <value>4048672096</value>
+      </identifier>
+      <labels />
+    </book>
+    <book>
+      <id>-lKUQgAACAAJ</id>
+      <url>http://books.google.co.jp/books?id=-lKUQgAACAAJ</url>
+      <title>Dive into Python</title>
+      <contributor>Mark Pilgrim</contributor>
+      <identifier>
+        <type>ISBN</type>
+        <value>1590593561</value>
+      </identifier>
+      <labels />
+    </book>
+    <book>
+      <id>RgvFQgAACAAJ</id>
+      <url>http://books.google.co.jp/books?id=RgvFQgAACAAJ</url>
+      <title>wxPython in action</title>
+      <contributor>Noel Rappin, Robin Dunn</contributor>
+      <identifier>
+        <type>ISBN</type>
+        <value>1932394621</value>
+      </identifier>
+      <labels />
+    </book>
+  </books>
+  <add_token>ACfU3U2HrixOo3FKSaRtQgH2fnS8o52miA</add_token>
+  <remove_token>ACfU3U1XGhHhMD0yWOLF9x0viEXIb5UKbQ</remove_token>
+  <ack_token>ACfU3U1H83KO9wV6k2nxg3Nnh153YauCIQ</ack_token>
+</library>
