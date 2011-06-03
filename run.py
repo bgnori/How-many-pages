@@ -1,9 +1,22 @@
 #!python
 # -*- coding=utf8 -*-
 
+import re
 from xml.etree.ElementTree import *
 
-def getpage(url):
+LENGTHPATTERN = r'''<tr class="metadata_row"><td class="metadata_label">Length</td><td class="metadata_value"><span dir=ltr>(?P<length>\d+) pages</span></td></tr>'''
+
+REGEXP = re.compile(LENGTHPATTERN)
+
+
+def findLengthFromHTML(html):
+  text = html.read()
+  m = REGEXP.search(text)
+  return int(m.groupdict()['length'])
+
+
+
+def getlength(url):
   '''Returns number of pages from google books.'''
   map = {
     'http://books.google.com/books?id=K3tgOwAACAAJ': 519,
@@ -30,7 +43,7 @@ def xml2dicts(input):
         d[elem.tag] = elem.text
       elif elem.tag == 'identifier':
         d['isbn'] = elem.find('./value').text
-    d['length'] = getpage(d['url'])
+    d['length'] = getlength(d['url'])
     result.append(d)
   return result
 

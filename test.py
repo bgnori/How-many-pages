@@ -2,11 +2,34 @@
 # -*- coding=utf8 -*-
 
 import unittest
-from run import xml2dicts
+from run import xml2dicts, getlength, findLengthFromHTML
 
 
 
-class TestCaseForxml2dicts(unittest.TestCase):
+class TestCase_findLengthFromHTML(unittest.TestCase):
+  def test_K3tgOwAACAAJ(self):
+    f = open('K3tgOwAACAAJ.html')
+    n = findLengthFromHTML(f)
+    self.assertEqual(n, 519)
+
+  def test__lKUQgAACAAJ(self):
+    f = open('-lKUQgAACAAJ.html')
+    n = findLengthFromHTML(f)
+    self.assertEqual(n, 413)
+
+
+class TestCase_getlength(unittest.TestCase):
+  def setUp(self):
+    pass
+
+  def test_K3tgOwAACAAJ(self):
+    pass
+
+
+
+
+
+class TestCase_xml2dicts(unittest.TestCase):
   def setUp(self):
     pass
 
