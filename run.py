@@ -47,13 +47,30 @@ def xml2dicts(input):
     d = dict(TAGS)
     for elem in book.getchildren():
       if elem.tag in TAGS:
-        d[elem.tag] = elem.text
+        d[elem.tag] = elem.text.encode('utf-8')
       elif elem.tag == 'identifier':
-        d['isbn'] = elem.find('./value').text
+        d['isbn'] = elem.find('./value').text.encode('utf-8')
     d['length'] = getlength(d['url'])
     result.append(d)
   return result
 
 if __name__ == '__main__':
-  pass
+  import sys
+  import csv
+  import codecs
+
+  in_file = sys.argv[1]
+  
+  print in_file
+  out_file = in_file[:-3] + 'csv'
+  print out_file
+  
+  ds = xml2dicts(in_file)
+
+  out = open(out_file, 'wb') 
+  writer = csv.DictWriter(out, ['isbn', 'title', 'length'], restval='', extrasaction='ignore')
+  writer.writerows(ds)
+  out.close()
+  
+ 
 

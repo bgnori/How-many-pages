@@ -56,8 +56,8 @@ class TestCase_xml2dicts(unittest.TestCase):
       {
         'id':'K3tgOwAACAAJ', 
         'url':'http://books.google.com/books?id=K3tgOwAACAAJ',
-        'title': u'開発のプロが教える標準Django完全解説', 
-        'contributor': u'増田泰, 中居良介, 露木誠, 松原豊',
+        'title': '開発のプロが教える標準Django完全解説', 
+        'contributor': '増田泰, 中居良介, 露木誠, 松原豊',
         'isbn': '4048672096',
          'length': 519,
       }
@@ -83,8 +83,8 @@ class TestCase_xml2dicts(unittest.TestCase):
       {
         'id':'rsBdPgAACAAJ',
         'url': 'http://books.google.com/books?id=rsBdPgAACAAJ', 
-        'title': u'Django×Python',
-        'contributor': u'露木誠',
+        'title': 'Django×Python',
+        'contributor': '露木誠',
         'isbn': '477413760X', 
         'length': 287, 
       }
