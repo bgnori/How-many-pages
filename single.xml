@@ -2,11 +2,11 @@
 <library>
   <list_title>test</list_title>
   <blurb></blurb>
-  <url>http://books.google.co.jp/books?uid=109354444701174183837&amp;as_coll=1001</url>
+  <url>http://books.google.com/books?uid=109354444701174183837&amp;as_coll=1001</url>
   <books>
     <book>
       <id>rsBdPgAACAAJ</id>
-      <url>http://books.google.co.jp/books?id=rsBdPgAACAAJ</url>
+      <url>http://books.google.com/books?id=rsBdPgAACAAJ</url>
       <title>Django×Python</title>
       <contributor>露木誠</contributor>
       <identifier>
@@ -16,7 +16,7 @@
       <labels />
     </book>
   </books>
-  <add_token>ACfU3U2HrixOo3FKSaRtQgH2fnS8o52miA</add_token>
-  <remove_token>ACfU3U1XGhHhMD0yWOLF9x0viEXIb5UKbQ</remove_token>
-  <ack_token>ACfU3U1H83KO9wV6k2nxg3Nnh153YauCIQ</ack_token>
+  <add_token>ACfU3U1kgnbECD677n4RROFnvAn7hpBl6w</add_token>
+  <remove_token>ACfU3U2JNismZmIQeD8eq3Qj8yNS4uCzPA</remove_token>
+  <ack_token>ACfU3U0jaXK0eAzvwIxX0fEH860m4lufNA</ack_token>
 </library>

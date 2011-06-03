@@ -15,47 +15,49 @@ class TestCaseForxml2dicts(unittest.TestCase):
     iter = xml2dicts('multi.xml')
     self.assertEqual(iter[0], 
       {
-        'id':'K3tgOwAACAAJ', 
-        'url':'http://books.google.co.jp/books?id=K3tgOwAACAAJ',
-        'title': u'開発のプロが教える標準Django完全解説', 
-        'contributor': u'増田泰, 中居良介, 露木誠, 松原豊',
-        'isbn': '4048672096',
-         'page': 519,
+        'id':'-lKUQgAACAAJ', 
+        'url':'http://books.google.com/books?id=-lKUQgAACAAJ', 
+        'title':'Dive into Python', 
+        'contributor':'Mark Pilgrim', 
+        'isbn':'1590593561', 
+        'length':413,
       }
     )
     self.assertEqual(iter[1], 
       {
-        'id':'-lKUQgAACAAJ', 
-        'url':'http://books.google.co.jp/books?id=-lKUQgAACAAJ', 
-        'title':'Dive into Python', 
-        'contributor':'Mark Pilgrim', 
-        'isbn':'1590593561', 
-        'page':413,
+        'id':'K3tgOwAACAAJ', 
+        'url':'http://books.google.com/books?id=K3tgOwAACAAJ',
+        'title': u'開発のプロが教える標準Django完全解説', 
+        'contributor': u'増田泰, 中居良介, 露木誠, 松原豊',
+        'isbn': '4048672096',
+         'length': 519,
       }
     )
     self.assertEqual(iter[2], 
       {
         'id':'RgvFQgAACAAJ',
-        'url':'http://books.google.co.jp/books?id=RgvFQgAACAAJ', 
+        'url':'http://books.google.com/books?id=RgvFQgAACAAJ', 
         'title':'wxPython in action', 
         'contributor':'Noel Rappin, Robin Dunn',
         'isbn':'1932394621', 
-        'page':552,
+        'length':552,
       }
     )
     self.assertEqual(len(iter), 3)
 
   def testsingle(self):
+    '''single.xml contains a book'''
+
     iter = xml2dicts('single.xml')
 
     self.assertEqual(iter[0], 
       {
         'id':'rsBdPgAACAAJ',
-        'url': 'http://books.google.co.jp/books?id=rsBdPgAACAAJ', 
+        'url': 'http://books.google.com/books?id=rsBdPgAACAAJ', 
         'title': u'Django×Python',
         'contributor': u'露木誠',
         'isbn': '477413760X', 
-        'page': 287, 
+        'length': 287, 
       }
     )
     self.assertEqual(len(iter), 1)

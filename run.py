@@ -6,10 +6,10 @@ from xml.etree.ElementTree import *
 def getpage(url):
   '''Returns number of pages from google books.'''
   map = {
-    'http://books.google.co.jp/books?id=K3tgOwAACAAJ': 519,
-    'http://books.google.co.jp/books?id=-lKUQgAACAAJ': 413,
-    'http://books.google.co.jp/books?id=RgvFQgAACAAJ': 552,
-    'http://books.google.co.jp/books?id=rsBdPgAACAAJ': 287,
+    'http://books.google.com/books?id=K3tgOwAACAAJ': 519,
+    'http://books.google.com/books?id=-lKUQgAACAAJ': 413,
+    'http://books.google.com/books?id=RgvFQgAACAAJ': 552,
+    'http://books.google.com/books?id=rsBdPgAACAAJ': 287,
   }
 
   return map[url]
@@ -30,7 +30,7 @@ def xml2dicts(input):
         d[elem.tag] = elem.text
       elif elem.tag == 'identifier':
         d['isbn'] = elem.find('./value').text
-    d['page'] = getpage(d['url'])
+    d['length'] = getpage(d['url'])
     result.append(d)
   return result
 
