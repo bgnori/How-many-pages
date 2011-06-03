@@ -2,11 +2,22 @@
 # -*- coding=utf8 -*-
 
 import re
+import urllib2
 from xml.etree.ElementTree import *
 
 LENGTHPATTERN = r'''<tr class="metadata_row"><td class="metadata_label">Length</td><td class="metadata_value"><span dir=ltr>(?P<length>\d+) pages</span></td></tr>'''
 
 REGEXP = re.compile(LENGTHPATTERN)
+
+def hackCookie(fn):
+  f = open(fn)
+  try:
+    return f.read()[len('Cookie: '):]
+  finally:
+    f.close()
+
+opener = urllib2.build_opener()
+opener.addheaders = [('Cookie', hackCookie('cookie.txt'))]
 
 
 def findLengthFromHTML(html):
@@ -15,17 +26,13 @@ def findLengthFromHTML(html):
   return int(m.groupdict()['length'])
 
 
-
 def getlength(url):
   '''Returns number of pages from google books.'''
-  map = {
-    'http://books.google.com/books?id=K3tgOwAACAAJ': 519,
-    'http://books.google.com/books?id=-lKUQgAACAAJ': 413,
-    'http://books.google.com/books?id=RgvFQgAACAAJ': 552,
-    'http://books.google.com/books?id=rsBdPgAACAAJ': 287,
-  }
-
-  return map[url]
+  h = opener.open(url)
+  try:
+    return findLengthFromHTML(h)
+  finally:
+    h.close()
 
 TAGS = {'id':None, 'url':None, 'title':None, 'contributor':None, 'isbn':None,}
 
@@ -49,3 +56,4 @@ def xml2dicts(input):
 
 if __name__ == '__main__':
   pass
+

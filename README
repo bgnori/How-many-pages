@@ -1,0 +1,6 @@
+
+
+Have to get Cookie: header before use. 
+Store Cookie to cookie.txt locally.
+script will read cookie.txt in current dir to supply cookie.
+

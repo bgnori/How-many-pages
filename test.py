@@ -23,11 +23,17 @@ class TestCase_getlength(unittest.TestCase):
     pass
 
   def test_K3tgOwAACAAJ(self):
-    pass
+    n = getlength('http://books.google.com/books?id=K3tgOwAACAAJ')
+    self.assertEqual(n, 519)
 
+  def test_RgvFQgAACAAJ(self):
+    n = getlength('http://books.google.com/books?id=RgvFQgAACAAJ')
+    self.assertEqual(n, 552)
 
-
-
+  def test_rsBdPgAACAAJ(self):
+    n = getlength('http://books.google.com/books?id=rsBdPgAACAAJ')
+    self.assertEqual(n, 287)
+    
 
 class TestCase_xml2dicts(unittest.TestCase):
   def setUp(self):
