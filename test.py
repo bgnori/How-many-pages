@@ -12,15 +12,15 @@ class TestCaseForxml2dicts(unittest.TestCase):
 
   def testmulti(self):
     '''multiple.xml contains three books'''
-    f = open('multi.xml')
-    iter = xml2dicts(f)
+    iter = xml2dicts('multi.xml')
     self.assertEqual(iter[0], 
       {
         'id':'K3tgOwAACAAJ', 
         'url':'http://books.google.co.jp/books?id=K3tgOwAACAAJ',
         'title': u'開発のプロが教える標準Django完全解説', 
         'contributor': u'増田泰, 中居良介, 露木誠, 松原豊',
-        'isbn': '4048672096', 'page': 519
+        'isbn': '4048672096',
+         'page': 519,
       }
     )
     self.assertEqual(iter[1], 
@@ -30,7 +30,7 @@ class TestCaseForxml2dicts(unittest.TestCase):
         'title':'Dive into Python', 
         'contributor':'Mark Pilgrim', 
         'isbn':'1590593561', 
-        'page':413
+        'page':413,
       }
     )
     self.assertEqual(iter[2], 
@@ -40,22 +40,23 @@ class TestCaseForxml2dicts(unittest.TestCase):
         'title':'wxPython in action', 
         'contributor':'Noel Rappin, Robin Dunn',
         'isbn':'1932394621', 
-        'page':552
+        'page':552,
       }
     )
-    f.close()
+    self.assertEqual(len(iter), 3)
 
   def testsingle(self):
-    f = open('single.xml')
-    iter = xml2dicts(f)
+    iter = xml2dicts('single.xml')
 
     self.assertEqual(iter[0], 
       {
-        'isbn': '477413760X', 
-        'id':'sBdPgAACAAJ',
+        'id':'rsBdPgAACAAJ',
         'url': 'http://books.google.co.jp/books?id=rsBdPgAACAAJ', 
+        'title': u'Django×Python',
+        'contributor': u'露木誠',
+        'isbn': '477413760X', 
         'page': 287, 
-        'title': u'Django×Python'
       }
     )
-    f.close()
+    self.assertEqual(len(iter), 1)
+

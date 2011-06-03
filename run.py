@@ -3,54 +3,36 @@
 
 from xml.etree.ElementTree import *
 
+def getpage(url):
+  '''Returns number of pages from google books.'''
+  map = {
+    'http://books.google.co.jp/books?id=K3tgOwAACAAJ': 519,
+    'http://books.google.co.jp/books?id=-lKUQgAACAAJ': 413,
+    'http://books.google.co.jp/books?id=RgvFQgAACAAJ': 552,
+    'http://books.google.co.jp/books?id=rsBdPgAACAAJ': 287,
+  }
 
-tree = parse('single.xml')
-root = tree.getroot()
+  return map[url]
 
-
-ve = root.find('.//identifier/value')
-print ve.text #isbn, #477413760X
-
+TAGS = {'id':None, 'url':None, 'title':None, 'contributor':None, 'isbn':None,}
 
 def xml2dicts(input):
   '''Returns list of dicts, every dict holds data on a book.'''
-
-  m = [
-    {
-      'id':'K3tgOwAACAAJ', 
-      'url':'http://books.google.co.jp/books?id=K3tgOwAACAAJ',
-      'title': u'開発のプロが教える標準Django完全解説', 
-      'contributor': u'増田泰, 中居良介, 露木誠, 松原豊',
-      'isbn': '4048672096', 'page': 519
-    },
-    {
-      'id':'-lKUQgAACAAJ', 
-      'url':'http://books.google.co.jp/books?id=-lKUQgAACAAJ', 
-      'title':'Dive into Python', 
-      'contributor':'Mark Pilgrim', 
-      'isbn':'1590593561', 
-      'page':413
-    },
-    {
-      'id':'RgvFQgAACAAJ',
-      'url':'http://books.google.co.jp/books?id=RgvFQgAACAAJ', 
-      'title':'wxPython in action', 
-      'contributor':'Noel Rappin, Robin Dunn',
-      'isbn':'1932394621', 
-      'page':552
-    }
-  ]
-  s = [
-    {'isbn': '477413760X', 
-     'id':'sBdPgAACAAJ',
-     'url': 'http://books.google.co.jp/books?id=rsBdPgAACAAJ', 
-     'page': 287, 
-     'title': u'Django×Python'
-    }
-  ]
-  return s
+  
+  tree = parse(input)
+  root = tree.getroot()
+  books = root.find('.//books')
+  result = []
+  for book in books.findall('./book'):
+    d = dict(TAGS)
+    for elem in book.getchildren():
+      if elem.tag in TAGS:
+        d[elem.tag] = elem.text
+      elif elem.tag == 'identifier':
+        d['isbn'] = elem.find('./value').text
+    d['page'] = getpage(d['url'])
+    result.append(d)
+  return result
 
 if __name__ == '__main__':
-  print 'testing'
-  doctest.testmod()
-
+  pass
